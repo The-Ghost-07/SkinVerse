@@ -1,0 +1,76 @@
+/* nav logo */
+
+:hover.logo-bg1 {
+    transform: rotate(135deg);
+    box-shadow: 0 0 12px #cbcaca;
+    border: 0.2px solid #cbcaca;
+}
+
+.logo-bg1:hover .nav-logo {
+    transform: rotate(45deg) scale(1.2);
+}
+
+.logo-bg1:hover .logo-bg2 {
+    transform: rotate(-180deg);
+}
+
+.nav-opt-bg:hover {
+    color: #f9f9f9;
+    background-color: #6e6b6ba6;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #cbcacaa8;
+    border: 0.2px solid #cbcacaa8;
+
+}
+
+.hero-small-box:hover .cat-block {
+    transform: scale(1.01) translatey(-7px);
+    box-shadow: 4px 0 25px #f9f9f950, -4px 0 25px #cbcaca43;
+}
+
+.hero-small-box:hover .custo-l {
+  bottom: 105px;
+  left: -15px;
+  transform: scale(1);
+}
+
+.hero-small-box:hover .custo-t {
+  bottom: 186px;
+  left: 85px;
+  transform: scale(1);
+}
+
+.hero-small-box:hover .custo-r {
+  bottom: 110px;
+  left: 155px;
+  transform: scale(1);
+}
+
+
+.hero-small-box:hover .dec-l {
+  bottom: 105px;
+  left: -25px;
+  transform: scale(1);
+}
+
+.hero-small-box:hover .dec-t {
+  bottom: 197px;
+  left: 85px;
+  transform: scale(1);
+}
+
+.hero-small-box:hover .dec-r {
+  bottom: 110px;
+  left: 150px;
+  transform: scale(1);
+}
+
+.cat-btn:hover {
+    z-index: -1;
+    box-shadow: 4px 0 25px #f9f9f9be, -4px 0 25px #cbcacabe;
+    color: rgba(38, 38, 41, 1);
+    
+}
+.cat-btn:hover::after{
+    border: .7px solid rgba(38, 38, 41, 0.738);
+}
