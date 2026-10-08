@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinVerse — Wishlist</title>
+    <link rel="icon" href="skinverse_logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Righteous&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="subpage">
+
+    <div class="page-frame">
+    <div class="side-nav">
+        <a class="logo-link" href="index.html">
+            <div class="logo-bg1">
+                <div class="logo-bg2"><img src="skinverse_logo.png" class="nav-logo" alt="SkinVerse logo"></div>
+            </div>
+        </a>
+        <div class="nav-opt">
+            <a class="nav-icon-link" href="search.html"><div class="nav-opt-bg"><i class="fa-solid fa-magnifying-glass"></i></div></a>
+            <a class="nav-icon-link" href="shop.html"><div class="nav-opt-bg"><i class="fa-solid fa-table-cells-large"></i></div></a>
+            <a class="nav-icon-link" href="cart.html"><div class="nav-opt-bg"><i class="fa-solid fa-cart-shopping"></i><span class="nav-badge" data-badge="cart">0</span></div></a>
+            <a class="nav-icon-link" href="wishlist.html"><div class="nav-opt-bg active"><i class="fa-solid fa-heart"></i><span class="nav-badge" data-badge="wish">0</span></div></a>
+            <a class="nav-icon-link" href="about.html" aria-label="About us"><div class="nav-opt-bg"><i class="fa-solid fa-circle-info"></i></div></a>
+        </div>
+        <div class="nav-user">
+            <a class="nav-icon-link" href="account.html"><div class="nav-opt-bg"><i class="fa-solid fa-user-astronaut"></i></div></a>
+        </div>
+    </div>
+
+    <div class="content-shell">
+        <div class="shell-header">
+            <a class="brand-mark" href="index.html">
+                <img src="skinverse_logo.png" alt="">
+                <span>SkinVerse</span>
+            </a>
+            <div class="title-block">
+                <div class="page-title">Wishlist</div>
+                <div class="page-sub" id="wishCount"></div>
+            </div>
+        </div>
+
+        <div class="product-grid" id="grid"></div>
+    </div>
+
+    </div>
+
+    <script src="products.js"></script>
+    <script>
+        function render() {
+            const items = SKINVERSE.wishlistProducts();
+            document.getElementById("wishCount").textContent = items.length ? `${items.length} saved` : "";
+            SKINVERSE.renderGrid("#grid", items);
+        }
+        render();
+        document.getElementById("grid").addEventListener("click", () => setTimeout(render, 0));
+    </script>
+</body>
+
+</html>

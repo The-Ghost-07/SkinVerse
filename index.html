@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinVerse</title>
+    <link rel="icon" href="skinverse_logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        /* skip the intro if already seen this session, or if the user prefers reduced motion */
+        (function () {
+            var r = document.documentElement, seen = false;
+            try { seen = !!sessionStorage.getItem("sv-intro"); } catch (e) {}
+            if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) r.classList.add("skip-intro");
+            else setTimeout(function () { r.classList.add("intro-done"); }, 8000); /* safety net */
+        })();
+    </script>
+    <noscript><style>.intro{display:none}.hero-main-container{opacity:1!important;transform:none!important}.logo-link{opacity:1!important}</style></noscript>
+</head>
+
+<body>
+    <!-- site-entry intro (styles: intro.css, logic: intro.js) -->
+    <div class="intro" id="intro" aria-hidden="true">
+        <div class="in-bg"></div>
+        <div class="in-ring"></div>
+        <div class="in-fly">
+            <div class="in-frame">
+                <div class="in-inner"><img src="skinverse_logo.png" class="in-logo" alt=""></div>
+            </div>
+        </div>
+        <div class="in-text">
+            <div class="in-word">
+                <span style="--i:0">S</span><span style="--i:1">k</span><span style="--i:2">i</span><span style="--i:3">n</span><span style="--i:4">V</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">s</span><span style="--i:8">e</span>
+            </div>
+            <div class="in-bar"><i></i></div>
+        </div>
+    </div>
+
+    <div class="hero-main-container">
+
+        <div class="side-nav">
+
+            <a class="logo-link" href="index.html">
+                <div class="logo-bg1">
+                    <div class="logo-bg2"><img src="skinverse_logo.png" class="nav-logo" alt="SkinVerse logo"></div>
+                </div>
+            </a>
+
+            <div class="nav-opt">
+                <a class="nav-icon-link" href="search.html">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-magnifying-glass"></i></div>
+                </a>
+                <a class="nav-icon-link" href="shop.html">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-table-cells-large"></i></div>
+                </a>
+                <a class="nav-icon-link" href="cart.html">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-cart-shopping"></i><span class="nav-badge"
+                            data-badge="cart">0</span></div>
+                </a>
+                <a class="nav-icon-link" href="wishlist.html">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-heart"></i><span class="nav-badge"
+                            data-badge="wish">0</span></div>
+                </a>
+                <a class="nav-icon-link" href="about.html" aria-label="About us">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-circle-info"></i></div>
+                </a>
+            </div>
+            <div class="nav-user">
+                <a class="nav-icon-link" href="account.html">
+                    <div class="nav-opt-bg"><i class="fa-solid fa-user-astronaut"></i></div>
+                </a>
+            </div>
+
+        </div>
+        <div>
+            <div class="full-logo">SkinVerse</div>
+            <div class="center-bento">
+
+                
+                <div class="bento-content">
+                    <h1 class="bento-title">
+                        <span class="bt-line">
+                            Skin
+                            <span class="bt-dome"></span>
+                            <svg class="bt-star" viewBox="0 0 100 100" aria-hidden="true">
+                                <g stroke="currentColor" stroke-width="16" stroke-linecap="butt">
+                                    <line x1="50" y1="4" x2="50" y2="96" />
+                                    <line x1="10" y1="27" x2="90" y2="73" />
+                                    <line x1="10" y1="73" x2="90" y2="27" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="bt-line">everything.</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="center-small-box">
+                <div class="slider-box">
+                    <!-- Set 1 -->
+                    <a class="card" href="bundle.html?id=b1" title="View bundle"><img src="ref/home-pro/ds1.jpg" class="slider-img" alt="Desktop bundle 1"></a>
+                    <a class="card" href="bundle.html?id=b2" title="View bundle"><img src="ref/home-pro/ds2.jpg" class="slider-img" alt="Desktop bundle 2"></a>
+                    <a class="card" href="bundle.html?id=b3" title="View bundle"><img src="ref/home-pro/ds3.jpg" class="slider-img" alt="Desktop bundle 3"></a>
+                    <a class="card" href="bundle.html?id=b4" title="View bundle"><img src="ref/home-pro/ds4.jpg" class="slider-img" alt="Desktop bundle 4"></a>
+
+                    <!-- Set 2 (exact duplicate) -->
+                    <a class="card" href="bundle.html?id=b1" title="View bundle"><img src="ref/home-pro/ds1.jpg" class="slider-img" alt="Desktop bundle 1"></a>
+                    <a class="card" href="bundle.html?id=b2" title="View bundle"><img src="ref/home-pro/ds2.jpg" class="slider-img" alt="Desktop bundle 2"></a>
+                    <a class="card" href="bundle.html?id=b3" title="View bundle"><img src="ref/home-pro/ds3.jpg" class="slider-img" alt="Desktop bundle 3"></a>
+                    <a class="card" href="bundle.html?id=b4" title="View bundle"><img src="ref/home-pro/ds4.jpg" class="slider-img" alt="Desktop bundle 4"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-box-container">
+
+            <div class="hero-small-box">
+              
+
+                <div class="cat-block">
+                    <div class="custo-main-img"></div>
+                </div>
+                <div class="custo-l"></div>
+                <div class="custo-t"></div>
+                <div class="custo-r"></div>
+
+                <a href="digital.html" class="cat-btn">Digital</a>
+            </div>
+
+            <div class="hero-small-box">
+                <div class="cat-block">
+                    <div class="dec-main-img"></div>
+                </div>
+                <div class="dec-l"></div>
+                <div class="dec-t"></div>
+                <div class="dec-r"></div>
+                <a href="desk.html" class="cat-btn">Desk</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="spotlight.js"></script>
+    <script src="intro.js"></script>
+</body>
+
+</html>

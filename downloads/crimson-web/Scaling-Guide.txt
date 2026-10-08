@@ -1,0 +1,411 @@
+RAINMETER SKIN — EASY SIZE SCALING GUIDE
+=============================================
+
+This guide explains how to make a Rainmeter skin smaller or larger.
+It is written for beginners and does not require programming knowledge.
+
+IMPORTANT:
+-----------
+• Always make a backup before changing a skin.
+• Change ONE thing at a time.
+• If something looks wrong, you can undo your changes using the backup.
+• The exact names of files may be different for different skins.
+
+
+METHOD 1 — EASIEST WAY: USE RAINMETER'S SCALE SETTING
+-------------------------------------------------------
+
+If the skin was designed with a built-in scale option, this is the
+easiest method.
+
+STEP 1: Open Rainmeter
+    1. Look at the Windows system tray near the clock.
+    2. Find the Rainmeter icon.
+    3. Right-click the Rainmeter icon.
+    4. Click "Manage".
+
+STEP 2: Find your skin
+    1. In the Rainmeter Manage window, find the skin you want to resize.
+    2. Click the skin's folder/name.
+    3. Look for an option such as:
+       • Scale
+       • Skin Scale
+       • Size
+       • Zoom
+       • UIScale
+       • GlobalScale
+       • @Resources settings
+
+STEP 3: Change the scale
+    If the skin provides a scale slider or number:
+    • 100% = original size
+    • 125% = 25% larger
+    • 150% = 50% larger
+    • 75% = 25% smaller
+    • 50% = half the original size
+
+    Example:
+    If the skin is too small, try 125%.
+    If it is too large, try 80%.
+
+STEP 4: Refresh the skin
+    1. Right-click the skin.
+    2. Select "Refresh skin".
+    3. Check the result.
+    4. Keep adjusting until the size looks right.
+
+
+METHOD 2 — SIMPLE MANUAL SCALING
+---------------------------------
+
+Use this method if the skin does NOT have a visible scale option.
+
+STEP 1: Open the Rainmeter skins folder
+    1. Press Windows + R.
+    2. Type:
+
+       %USERPROFILE%\Documents\Rainmeter\Skins
+
+    3. Press Enter.
+
+    NOTE:
+    Some Rainmeter installations may use a different Documents folder.
+    If you cannot find your skin there, open Rainmeter > Manage and
+    right-click the skin to locate its folder.
+
+STEP 2: BACK UP THE SKIN
+    1. Find the folder of your skin.
+    2. Right-click the folder.
+    3. Select Copy.
+    4. Paste it somewhere safe, such as your Desktop.
+    5. Rename the copy to:
+
+       Skin Backup
+
+    NEVER skip this step if you are new to Rainmeter.
+
+STEP 3: FIND THE CONFIGURATION FILE
+    Inside the skin folder, look for a file ending in:
+
+       .ini
+
+    Examples:
+       Clock.ini
+       Main.ini
+       Skin.ini
+       Player.ini
+
+    If there are several .ini files, the skin may contain multiple
+    widgets. You may need to change more than one file.
+
+STEP 4: OPEN THE FILE
+    1. Right-click the .ini file.
+    2. Select "Open with".
+    3. Choose Notepad.
+
+    Do NOT use Word or WordPad for Rainmeter configuration files.
+
+STEP 5: LOOK FOR A SCALE VARIABLE
+    Use Ctrl + F in Notepad and search for words such as:
+
+       Scale
+       Size
+       FontSize
+       W
+       H
+
+    A skin may contain a variable such as:
+
+       Scale=1
+
+    or:
+
+       Scale=100
+
+    or:
+
+       Scale=1.0
+
+    IMPORTANT:
+    Do not randomly change every number you see.
+    Only change a value when you understand what it controls.
+
+
+METHOD 3 — SCALE THE WHOLE SKIN WITH A GLOBAL SCALE VARIABLE
+--------------------------------------------------------------
+
+This is the best manual method when the skin has been designed with
+a central scale variable.
+
+For example, you may see:
+
+       [Variables]
+       Scale=1
+
+    Other lines may use the variable like:
+
+       FontSize=(12*#Scale#)
+
+    or:
+
+       X=(50*#Scale#)
+       Y=(20*#Scale#)
+
+If the skin uses this system, you normally only need to change:
+
+       Scale=1
+
+to something like:
+
+       Scale=1.25
+
+for approximately 125% size.
+
+Common values:
+       Scale=0.50    = 50%
+       Scale=0.75    = 75%
+       Scale=1.00    = 100%
+       Scale=1.10    = 110%
+       Scale=1.25    = 125%
+       Scale=1.50    = 150%
+       Scale=2.00    = 200%
+
+After changing it:
+    1. Save the file with Ctrl + S.
+    2. Open Rainmeter.
+    3. Right-click the skin.
+    4. Click "Refresh skin".
+
+
+VERY IMPORTANT — DO NOT CHANGE RANDOM NUMBERS
+----------------------------------------------
+
+Rainmeter .ini files contain many numbers.
+
+For example:
+
+       X=100
+       Y=200
+       W=300
+       H=100
+       FontSize=14
+       Update=1000
+
+These numbers do different jobs.
+
+• X = horizontal position
+• Y = vertical position
+• W = width
+• H = height
+• FontSize = text size
+• Update = update interval
+
+Changing all of them by the same amount can break the design.
+
+If there is no central Scale variable, use the skin's documentation
+or scale individual measurements carefully.
+
+
+HOW TO MAKE THE SKIN 10% LARGER
+-------------------------------
+
+If the skin uses:
+
+       Scale=1
+
+change it to:
+
+       Scale=1.10
+
+Save → Refresh skin → Check the result.
+
+
+HOW TO MAKE THE SKIN 25% LARGER
+-------------------------------
+
+Change:
+
+       Scale=1
+
+to:
+
+       Scale=1.25
+
+Save → Refresh skin → Check the result.
+
+
+HOW TO MAKE THE SKIN 25% SMALLER
+---------------------------------
+
+Change:
+
+       Scale=1
+
+to:
+
+       Scale=0.75
+
+Save → Refresh skin → Check the result.
+
+
+IF THE SKIN HAS MULTIPLE WIDGETS
+--------------------------------
+
+A Rainmeter skin pack may contain:
+
+• Clock
+• Date
+• Calendar
+• Weather
+• Music player
+• CPU monitor
+• RAM monitor
+• Disk monitor
+• Network monitor
+• Battery
+• System information
+
+Each widget may have its own .ini file.
+
+If changing one file only changes one widget, that is normal.
+
+Look for a shared Variables.inc file or a [Variables] section.
+If all widgets use the same scale variable, changing that one value
+can resize the entire skin pack.
+
+
+IF YOU CHANGE THE SIZE AND THE POSITION LOOKS WRONG
+---------------------------------------------------
+
+This usually happens when the skin does not use a proper global
+scaling system.
+
+For example:
+    • Text becomes larger but icons stay the same.
+    • The widget becomes larger but parts overlap.
+    • The skin becomes larger but spacing does not increase.
+    • The widget moves away from its original position.
+
+In this situation, restore your backup and use the skin's own
+scaling system if one is provided.
+
+Do NOT keep changing random numbers until it looks correct.
+
+
+HOW TO RESTORE THE ORIGINAL SKIN
+--------------------------------
+
+If you make a mistake:
+
+OPTION A — Undo your edit
+    1. Open the .ini file.
+    2. Press Ctrl + Z.
+    3. Save.
+    4. Refresh the skin.
+
+OPTION B — Use your backup
+    1. Close/refresh the Rainmeter skin.
+    2. Delete the edited skin folder only if you are sure it is your
+       modified copy.
+    3. Copy your backup folder back into the Rainmeter Skins folder.
+    4. Refresh Rainmeter.
+
+OPTION C — Reinstall the original skin
+    If you downloaded the skin from a skin website, download the
+    original package again and reinstall it.
+
+
+QUICK SIZE GUIDE
+----------------
+
+Want the skin...
+
+    Slightly smaller       → 0.90 / 90%
+    A little smaller       → 0.80 / 80%
+    Much smaller           → 0.70 / 70%
+    Half size              → 0.50 / 50%
+
+    Original size          → 1.00 / 100%
+
+    Slightly larger       → 1.10 / 110%
+    A little larger       → 1.20 / 120%
+    Clearly larger        → 1.25 / 125%
+    Much larger           → 1.50 / 150%
+    Double size           → 2.00 / 200%
+
+Only use these values when the skin's scale variable is designed
+to accept this type of value.
+
+
+BEST BEGINNER WORKFLOW
+----------------------
+
+Whenever you want to resize a Rainmeter skin, follow this order:
+
+    1. Open Rainmeter.
+    2. Find the skin.
+    3. Look for a built-in Scale/Size option.
+    4. If available, use it.
+    5. If not available, open the skin folder.
+    6. Make a backup.
+    7. Open the relevant .ini file with Notepad.
+    8. Search for "Scale".
+    9. If there is a central Scale variable, change ONLY that value.
+   10. Save the file.
+   11. Refresh the skin.
+   12. Check the result.
+   13. Adjust gradually, such as 1.00 → 1.10 → 1.20.
+   14. If something breaks, restore the backup.
+
+
+TROUBLESHOOTING
+---------------
+
+PROBLEM: I cannot find the skin folder.
+SOLUTION:
+    Open Rainmeter > Manage and locate the skin. Use the skin's
+    folder/location information to find its files.
+
+PROBLEM: I changed Scale but nothing happened.
+SOLUTION:
+    The skin may not use that variable. Check whether the variable is
+    actually used elsewhere in the .ini file.
+
+PROBLEM: Only the text became bigger.
+SOLUTION:
+    The skin may not have been designed for global scaling. A proper
+    scale system must be applied to positions, sizes, fonts, images,
+    and other measurements.
+
+PROBLEM: The skin disappeared after editing.
+SOLUTION:
+    Open Rainmeter > Manage and refresh the skin. If it still does not
+    work, restore the backup.
+
+PROBLEM: The skin is too large for my screen.
+SOLUTION:
+    Try a smaller scale such as 0.90, 0.80, or 0.75.
+
+PROBLEM: The skin is too small.
+SOLUTION:
+    Try 1.10, 1.20, or 1.25.
+
+PROBLEM: Some widgets are large and others are small.
+SOLUTION:
+    The widgets may use separate configuration files or separate
+    scale variables. Check each widget or look for a shared variable.
+
+
+FINAL TIP
+---------
+
+The safest rule is:
+
+    USE A BUILT-IN SCALE OPTION FIRST.
+    IF THERE IS NO SCALE OPTION, LOOK FOR A CENTRAL SCALE VARIABLE.
+    ALWAYS BACK UP BEFORE EDITING.
+    CHANGE SMALL AMOUNTS AND TEST AFTER EACH CHANGE.
+
+You do NOT need to understand programming to resize a well-designed
+Rainmeter skin. If the skin has been created with a proper global
+scaling system, changing one scale value can resize the entire design.

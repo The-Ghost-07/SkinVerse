@@ -1,0 +1,605 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'DM Serif Text', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("ref/main-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+.hero-main-container {
+    min-width: 1320px;
+    min-height: 708px;
+    margin: 35px;
+    background: radial-gradient(circle, rgba(191, 191, 191, 0.27) 0%, rgba(224, 224, 224, 0.27) 77%, rgba(191, 191, 191, 0.27) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid #fffbfb39;
+    box-shadow: 0 8px 20px #111111;
+    display: flex;
+    position: relative;
+}
+
+.side-nav {
+    width: 86px;
+    height: 660px;
+
+    position: absolute;
+    top: 25px;
+    left: 20px;
+
+    background-color: #111111be;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 20px #111111;
+    border: 1px solid #fffbfb39;
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo-bg1 {
+    width: 50px;
+    height: 50px;
+
+    background-color: #6e6b6b;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px #111111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.logo-bg2 {
+    width: 45px;
+    height: 45px;
+
+    background-color: #111111db;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px #111111;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.3s ease;
+}
+
+.nav-logo {
+    width: 35px;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.nav-opt {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: #b5b5b5;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.nav-opt-bg {
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111111db;
+    box-shadow: 0 2px 20px #111111;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-opt-bg:hover {
+    background-color: #1c1c1cdb;
+    transform: scale(1.08);
+}
+
+.nav-user {
+    display: flex;
+    color: #b5b5b5;
+    font-size: 20px;
+}
+
+.full-logo {
+    /* width: 240px;
+    height: 50px;
+    background-image: url("ref/skinverse_full_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+    font-size: 45px;
+    color: #efefef;
+    font-family: Righteous, sans-serif;
+    position: absolute;
+    top: 32px;
+    left: 462px;
+}
+
+.center-bento {
+    width: 896px;
+    height: 660px;
+    position: absolute;
+    top: 25px;
+    left: 120px;
+    background: radial-gradient(circle, rgba(38, 38, 41, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    clip-path: polygon(round 30px, 0% 0%, 35% 0%, 35% 11%, 64% 11%, 64% 0%, 100% 0%, 99% 100%, 42% 100%, 42% 74%, 0% 74%);
+    box-shadow: 0 8px 20px #111111;
+}
+
+.center-small-box {
+    width: 360px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(38, 38, 41, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    border-radius: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 120px;
+    box-shadow: 0 8px 20px #111111;
+    border: 1px solid #fffbfb39;
+    overflow: hidden; /* hidden, not auto: no scrolling needed */
+    display: flex;
+    align-items: center;
+}
+
+.slider-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+    width: max-content;          /* size to content, not container */
+    animation: spin 20s infinite linear;
+    will-change: transform;      /* smoother, GPU-accelerated */
+}
+
+.card {
+    flex-shrink: 0;
+    height: 140px;
+    width: 240px;
+    background: #f43434;
+    border-radius: 30px;
+    text-align: center;
+    align-content: center;
+    overflow: hidden;
+}
+
+.slider-img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+.hero-box-container {
+    width: 272px;
+    height: 660px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-small-box {
+    width: 272px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(38, 38, 41, 1) 0%, rgba(17, 17, 17, 1) 100%);
+    border-radius: 30px;
+    box-shadow: 0 8px 20px #111111;
+    border: 1px solid #fffbfb39;
+    position: relative;
+    isolation: isolate;
+}
+
+
+
+.cat-block {
+    width: 125px;
+    height: 125px;
+    background-color: #111111;
+    border-radius: 20px;
+    border: 1px solid #b5b5b5a0;
+    box-shadow: inset 0 2px 20px #b5b5b581;
+    position: absolute;
+    bottom: 90px;
+    left: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.custo-main-img {
+    width: 75px;
+    height: 75px;
+    background-image: url('ref/categories/custo-main.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.custo-l {
+    width: 150px;
+    height: 150px;
+    background-image: url('ref/categories/custo-left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.custo-t {
+    width: 110px;
+    height: 110px;
+    background-image: url('ref/categories/custo-top.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.custo-r {
+    width: 132px;
+    height: 132px;
+    background-image: url('ref/categories/custo-right.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.dec-main-img {
+    width: 75px;
+    height: 75px;
+    background-image: url('ref/categories/dec-main.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dec-l {
+    width: 170px;
+    height: 170px;
+    background-image: url('ref/categories/dec-left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.dec-t {
+    width: 100px;
+    height: 100px;
+    background-image: url('ref/categories/dec-top.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.dec-r {
+    width: 142px;
+    height: 142px;
+    background-image: url('ref/categories/dec-right.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 80px;
+    left: 77px;
+    transform: scale(0.5);
+    transition: transform 0.2s ease, bottom 0.2s ease, left 0.2s ease;
+}
+
+.cat-btn {
+    width: 150px;
+    height: 40px;
+
+    font-family: 'Righteous', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    color: #cbcaca;
+    background: radial-gradient(circle, rgba(38, 38, 41, 1) 0%, rgba(17, 17, 17, 1) 100%);
+
+    position: relative;
+    top: 250px;
+    left: 60px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cat-btn:hover {
+    color: #ffffff;
+    transform: scale(1.04);
+}
+
+.cat-btn::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -2.5px;
+    width: 155px;
+    height: 42px;
+    background: linear-gradient(97deg, rgba(92, 87, 87, 1) 0%, rgba(203, 202, 202, 1) 100%);
+    border-radius: 25px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+/* ---------- product swatch palette (used across catalogue/cart/wishlist) ---------- */
+/* monochrome only — differentiated by gradient shape, not hue */
+
+.swatch-1 {
+    background: radial-gradient(circle at 30% 28%, #f4f4f4 0%, #9a9a9a 55%, #161616 100%);
+}
+
+.swatch-2 {
+    background: radial-gradient(circle at 70% 30%, #e8e8e8 0%, #6b6b6b 55%, #111111 100%);
+}
+
+.swatch-3 {
+    background: linear-gradient(135deg, #dcdcdc 0%, #4a4a4a 60%, #0d0d0d 100%);
+}
+
+.swatch-4 {
+    background: linear-gradient(45deg, #ececec 0%, #5c5c5c 55%, #111111 100%);
+}
+
+.swatch-5 {
+    background: radial-gradient(circle at 50% 15%, #d2d2d2 0%, #3a3a3a 60%, #0c0c0c 100%);
+}
+
+.swatch-6 {
+    background: conic-gradient(from 220deg at 40% 40%, #f5f5f5, #4a4a4a, #0c0c0c, #f5f5f5);
+}
+
+.swatch-7 {
+    background: radial-gradient(circle at 25% 75%, #e0e0e0 0%, #555555 55%, #0d0d0d 100%);
+}
+
+.swatch-8 {
+    background: linear-gradient(160deg, #dcdcdc 0%, #2e2e2e 60%, #0a0a0a 100%);
+}
+
+/* ---------- homepage bento content ---------- */
+
+.bento-content {
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    height: 380px;
+    padding: 0 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.bento-title {
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: #f1f1f191;
+}
+
+/* global "* { font-family }" rule overrides inheritance,
+   so the font is set on the children explicitly */
+.bento-title,
+.bento-title * {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.bt-line {
+    display: block;
+    white-space: nowrap;
+}
+
+/* half-circle (flat side down) */
+.bt-dome {
+    display: inline-block;
+    width: 0.78em;
+    height: 0.39em;
+    background: currentColor;
+    border-radius: 999px 999px 0 0;
+    margin: 0 0.12em 0 0.1em;
+    vertical-align: baseline;
+}
+
+/* asterisk */
+.bt-star {
+    display: inline-block;
+    width: 0.62em;
+    height: 0.62em;
+    color: currentColor;
+    vertical-align: 0.1em;
+}
+
+.bento-desc {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #a8a8a8;
+    max-width: 480px;
+}
+
+.bento-stats {
+    display: flex;
+    gap: 34px;
+    margin-top: 2px;
+}
+
+.bento-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-stats strong {
+    font-family: 'Righteous', sans-serif;
+    font-size: 22px;
+    color: #e8e8e8;
+}
+
+.bento-stats span {
+    font-size: 12px;
+    color: #8a8a8a;
+    margin-top: 2px;
+}
+
+.cat-btn.inline {
+    top: 0;
+    left: 0;
+    margin-top: 6px;
+}
+
+.center-small-box {
+    display: flex;
+    align-items: center;
+    padding: 0 26px;
+}
+
+.mini-callout {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mini-callout i {
+    font-size: 20px;
+    color: #cbcaca;
+    flex-shrink: 0;
+}
+
+.mini-callout p {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #a8a8a8;
+}
+
+/* ---------- bento hero background (desk photo + dark fade) ---------- */
+
+.center-bento::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(90deg, rgba(17, 17, 17, 0.45) 0%, rgba(17, 17, 17, 0) 55%),
+        url("ref/bento-bg.png");
+        background-size:195%;
+    background-position:35% 20%;
+    background-repeat: no-repeat;
+}
+
+.center-bento .bento-content {
+    z-index: 1;
+}
+
+
+/* ---------- spotlight: photo stays visible, light follows the cursor ---------- */
+
+.center-bento {
+    --mx: 68%;
+    --my: 52%;
+}
+
+.center-bento::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        circle 260px at var(--mx) var(--my),
+        rgba(17, 17, 17, 0) 0%,
+        rgba(17, 17, 17, 0.1) 35%,
+        rgba(17, 17, 17, 0.9) 100%
+    );
+}
+
+/* keep text readable when the light passes behind it */
+.bento-title,
+.bento-desc,
+.bento-stats {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+
+/* home slider cards are links to the bundle pages */
+a.card { display: block; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+a.card:hover { transform: scale(1.05); box-shadow: 0 6px 18px #00000099; }

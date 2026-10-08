@@ -1,0 +1,218 @@
+/* ==========================================================================
+   SkinVerse — account.html bento layout
+   Load AFTER style.css, animation.css and shop.css.
+   Reference idea: dark tiles in two tones, big titles, small grey copy,
+   and large icons cropped by the tile edge.
+   ========================================================================== */
+
+.ac-grid {
+  --tile-r: 24px;
+  --gap: 14px;
+
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 280px 1fr 1fr;
+  grid-template-rows: minmax(190px, auto) auto auto;
+  grid-template-areas:
+    "profile cartstat wishstat"
+    "profile cart     cart"
+    "wish    wish     wish";
+}
+
+/* ---------- tiles ---------- */
+
+.ac-tile {
+  position: relative;
+  overflow: hidden;                 /* crops the big decorative icons */
+  border-radius: var(--tile-r);
+  border: 1px solid #fffbfb26;
+  padding: 28px;
+  box-shadow: 0 8px 20px #00000070;
+}
+
+/* two tones, like the reference: near-black and lifted grey */
+.tone-dark  { background: radial-gradient(circle at 30% 20%, #232326 0%, #111111 100%); }
+.tone-light { background: radial-gradient(circle at 30% 20%, #404044 0%, #2b2b2e 100%); }
+
+.ac-area-profile  { grid-area: profile; }
+.ac-area-cartstat { grid-area: cartstat; }
+.ac-area-wishstat { grid-area: wishstat; }
+.ac-area-cart     { grid-area: cart; }
+.ac-area-wish     { grid-area: wish; }
+
+/* ---------- typography ---------- */
+
+.ac-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #f1f1f1;
+}
+
+.ac-desc {
+  margin-top: 10px;
+  max-width: 260px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8f8f8f;
+}
+
+.tone-light .ac-desc { color: #a3a3a6; }
+
+.ac-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Righteous', sans-serif;
+  font-size: 12px;
+  color: #cbcaca;
+  background: #111111db;
+  border: 1px solid #fffbfb26;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ac-link:hover { color: #fff; transform: translateX(3px); }
+
+/* ---------- big cropped icons (monochrome "3D" feel) ---------- */
+
+.ac-icon {
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(145deg, #9a9a9a 0%, #3a3a3a 50%, #0c0c0c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.7));
+  transition: transform 0.4s ease;
+}
+
+.ac-tile:hover .ac-icon { transform: rotate(-6deg) scale(1.05); }
+
+/* ---------- profile (tall tile) ---------- */
+
+.ac-area-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ac-area-profile .ac-icon { top: -30px; right: -50px; font-size: 230px; }
+
+.profile-top { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+
+.ac-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #cbcaca;
+  background: #111111;
+  border: 1px solid #fffbfb39;
+  box-shadow: inset 0 2px 14px #b5b5b52e;
+}
+
+.ac-name { font-size: 36px; }
+.ac-email { margin-top: 8px; font-size: 13px; color: #8f8f8f; }
+
+.ac-orders-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #fffbfb1f;
+}
+
+.ac-orders-stat strong { font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: #f1f1f1; }
+.ac-orders-stat span { font-size: 13px; color: #8f8f8f; }
+
+.ac-edit {
+  margin-top: 18px;
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Righteous', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  background: linear-gradient(97deg, rgba(203, 202, 202, 1) 0%, rgba(120, 118, 118, 1) 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ac-edit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px #00000080; }
+
+/* ---------- stat tiles (cart / wishlist counts) ---------- */
+
+.ac-area-cartstat,
+.ac-area-wishstat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ac-area-cartstat .ac-icon,
+.ac-area-wishstat .ac-icon { right: -22px; bottom: -26px; font-size: 140px; }
+
+.ac-big-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #f1f1f1;
+}
+
+.ac-stat-label { margin-top: 8px; font-size: 14px; color: #8f8f8f; }
+.ac-stat-body { position: relative; z-index: 1; }
+
+/* ---------- cart / wishlist item tiles ---------- */
+
+.ac-area-cart .ac-icon { top: -10px; right: -14px; font-size: 110px; opacity: 0.9; }
+.ac-area-wish .ac-icon { top: -12px; right: 20px; font-size: 100px; }
+
+.ac-items-head { min-height: 70px; margin-bottom: 18px; position: relative; z-index: 1; }
+.ac-area-cart .mini-grid,
+.ac-area-wish .mini-grid { position: relative; z-index: 1; }
+
+/* ---------- keyboard focus ---------- */
+
+.ac-grid a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 960px) {
+  .ac-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "profile  profile"
+      "cartstat wishstat"
+      "cart     cart"
+      "wish     wish";
+  }
+}
+
+@media (max-width: 560px) {
+  .ac-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "profile" "cartstat" "wishstat" "cart" "wish";
+  }
+  .ac-tile { padding: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-icon, .ac-link, .ac-edit { transition: none; }
+  .ac-tile:hover .ac-icon { transform: none; }
+}
