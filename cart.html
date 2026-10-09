@@ -63,6 +63,10 @@
         let appliedCode = null;
 
         function render() {
+            // Digital items (wallpapers, Rainmeter skins, etc.) are a single licence: clamp any qty > 1 back to 1.
+            SKINVERSE.cartLines().forEach(l => {
+                if (l.product.cat === "digital" && l.qty > 1) SKINVERSE.setQty(l.id, 1);
+            });
             const lines = SKINVERSE.cartLines();
             const root = document.getElementById("cartRoot");
             const lineCount = document.getElementById("lineCount");
@@ -88,11 +92,13 @@
                                     <div class="cart-line-name">${l.product.name}</div>
                                     <div class="cart-line-cat">${SKINVERSE.catLabel(l.product)} · ${SKINVERSE.money(l.product.price)}</div>
                                 </div>
-                                <div class="qty-stepper">
+                                ${l.product.cat === "digital"
+                                    ? `<div class="qty-fixed" style="font-size:13px;color:#9a9a9a;white-space:nowrap;"><i class="fa-solid fa-download"></i> Digital · 1 licence</div>`
+                                    : `<div class="qty-stepper">
                                     <button onclick="SKINVERSE.setQty('${l.id}', ${l.qty - 1}); render();">−</button>
                                     <span>${l.qty}</span>
                                     <button onclick="SKINVERSE.setQty('${l.id}', ${l.qty + 1}); render();">+</button>
-                                </div>
+                                </div>`}
                                 <div style="display:flex; align-items:center; gap:16px;">
                                     <span class="cart-line-price">${SKINVERSE.money(l.product.price * l.qty)}</span>
                                     <button class="cart-remove" onclick="SKINVERSE.removeFromCart('${l.id}'); render();"><i class="fa-solid fa-trash"></i></button>
